@@ -49,4 +49,4 @@ function generatePrompt() {
 
 
 genButton.addEventListener("click", generatePrompt)
-window.addEventListener("load", getRandomColor)
+window.addEventListener("load", generatePrompt)

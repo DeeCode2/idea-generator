@@ -12,7 +12,7 @@ body {
   line-height: 1.5em;
 }
 body main {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
 }
 body main #generator-container {
@@ -20,14 +20,19 @@ body main #generator-container {
   flex-direction: column;
   width: 100%;
   max-width: 700px;
+  background-color: #dae4ff;
 }
 @media only screen and (min-width: 800px) {
   body main #generator-container {
     margin: auto;
     padding: 1em;
+    background-color: #fcfaf8;
+    height: auto;
   }
 }
 body main #generator-container button {
+  position: absolute;
+  margin: 1em;
   box-shadow: 5px 5px 0 #252525;
   padding: 1em;
   border: solid 2px #252525;
@@ -35,10 +40,8 @@ body main #generator-container button {
   transition: 0.3s;
   font-weight: bold;
   letter-spacing: 0.2em;
-  margin: 1em auto;
-  padding: 1em;
-  width: 80%;
   background-color: #ffb864;
+  cursor: pointer;
 }
 body main #generator-container button:hover {
   transform: translateY(5px);
@@ -47,12 +50,17 @@ body main #generator-container button:hover {
 @media only screen and (min-width: 800px) {
   body main #generator-container button {
     width: 40%;
+    margin: 1em auto;
+    padding: 1em;
+    position: relative;
   }
 }
 body main #generator-container #generator-results {
   background-color: #dae4ff;
   display: grid;
   grid-template-columns: 1fr;
+  padding: 0 2em;
+  height: 100vh;
 }
 @media only screen and (min-width: 800px) {
   body main #generator-container #generator-results {
@@ -60,6 +68,7 @@ body main #generator-container #generator-results {
     box-shadow: 5px 5px 0 #252525;
     padding: 1em;
     border: solid 2px #252525;
+    height: auto;
   }
 }
 body main #generator-container #generator-results .input-group {
@@ -73,7 +82,12 @@ body main #generator-container #generator-results .input-group .checkbox-contain
   position: relative;
   cursor: pointer;
   padding-left: 2.3em;
-  padding-bottom: 0.5em;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+  font-weight: bold;
 }
 body main #generator-container #generator-results .input-group .checkbox-container input {
   position: absolute;
@@ -142,7 +156,8 @@ body main #generator-container #generator-results #color-results .color-group .c
   transition: 0.3s;
   font-weight: bold;
   letter-spacing: 0.2em;
-  aspect-ratio: 1/0.3;
+  width: 75%;
+  margin: auto;
   border: solid 2px #252525;
   cursor: pointer;
 }
@@ -150,8 +165,13 @@ body main #generator-container #generator-results #color-results .color-group .c
   transform: translateY(5px);
   box-shadow: none;
 }
+@media only screen and (min-width: 800px) {
+  body main #generator-container #generator-results #color-results .color-group .color-view {
+    width: 100%;
+    aspect-ratio: 1/0.25;
+  }
+}
 body main #generator-container #generator-results #color-results .color-group .color-hex {
   width: 100%;
-  height: 100%;
   padding-top: 1em;
 }/*# sourceMappingURL=style.css.map */
