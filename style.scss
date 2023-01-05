@@ -84,20 +84,56 @@ body {
         height: auto;
       }
 
-      button {
+      #btn-group {
+
+        //border: solid red;
+        display: flex;
+        flex-direction: column;
+        //width: 25%;
         position: absolute;
         margin: 1em;
-        @include btns;
-        background-color: $yellow;
-        cursor: pointer;
 
-        @media only screen and (min-width: 800px) {
-            width: 40%;
-            margin: 1em auto;
-            padding: 1em;
+        @media only screen and (min-width:800px) {
             position: relative;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                margin: 0 1em;
+            }
+
+            #gen-btn {
+                background-color: $dark-green
+            }
+
+            #copy-btn {
+                background-color: $yellow;
+            }
         }
+        
+
+        button {
+            @include btns;
+            margin-bottom: 1em;
+        }
+        // #gen-btn {
+        //     position: absolute;
+        //     margin: 1em;
+        //     @include btns;
+        //     background-color: $yellow;
+        //     cursor: pointer;
+
+        //     @media only screen and (min-width: 800px) {
+        //         width: 40%;
+        //         margin: 1em auto;
+        //         padding: 1em;
+        //         position: relative;
+        //     }
+        // }  
       }
+
+      
 
       #generator-results {
         background-color: $light-blue;
@@ -220,8 +256,22 @@ body {
               padding-top: 1em;
             }
           }
+
+          
         }
       }
     }
   }
 }
+
+
+// button {
+//     border: solid red;
+    
+
+//     @media only screen and (min-width: 800px) {
+//         grid-column: span 3;
+//         width: 30%;
+//         @include btns;
+//     }
+//   }

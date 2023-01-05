@@ -30,9 +30,30 @@ body main #generator-container {
     height: auto;
   }
 }
-body main #generator-container button {
+body main #generator-container #btn-group {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   margin: 1em;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container #btn-group {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  body main #generator-container #btn-group button {
+    margin: 0 1em;
+  }
+  body main #generator-container #btn-group #gen-btn {
+    background-color: #4f9a7f;
+  }
+  body main #generator-container #btn-group #copy-btn {
+    background-color: #ffb864;
+  }
+}
+body main #generator-container #btn-group button {
   box-shadow: 5px 5px 0 #252525;
   padding: 1em;
   border: solid 2px #252525;
@@ -40,20 +61,11 @@ body main #generator-container button {
   transition: 0.3s;
   font-weight: bold;
   letter-spacing: 0.2em;
-  background-color: #ffb864;
-  cursor: pointer;
+  margin-bottom: 1em;
 }
-body main #generator-container button:hover {
+body main #generator-container #btn-group button:hover {
   transform: translateY(5px);
   box-shadow: none;
-}
-@media only screen and (min-width: 800px) {
-  body main #generator-container button {
-    width: 40%;
-    margin: 1em auto;
-    padding: 1em;
-    position: relative;
-  }
 }
 body main #generator-container #generator-results {
   background-color: #dae4ff;

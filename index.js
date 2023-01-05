@@ -2,6 +2,7 @@ import categories from "./categories.js";
 
 //grab generate button
 const genButton = document.getElementById("gen-btn")
+const copyButton = document.getElementById("copy-btn")
 
 const genCats = document.getElementsByClassName("result-text");
 const catCheckboxes = document.getElementsByClassName("result-checkbox");
@@ -12,21 +13,30 @@ function getRandomHex() {
     return Math.floor(Math.random()*16777215).toString(16);
 }
 
+//empty array of hexcodes
+let hexArr = [];
 
 function getRandomColor() {
+
+    
+
     for (let i = 0; i < colorRes.length; i++) {
         let randomNum = getRandomHex()
-        colorRes[i].style.backgroundColor = `#${randomNum}`
-        colorHex[i].innerText = `#${randomNum.toString().toUpperCase()}`
-        
-        colorRes[i].addEventListener("click", function copyHex() {
-            navigator.clipboard.writeText(`#${randomNum.toString().toUpperCase()}`);
-            alert("Copied!");
-        });
-    }    
+        let newHex = `#${randomNum.toUpperCase()}`
+        hexArr.push(`$color${i+1}: ${newHex};`);
+        colorRes[i].style.backgroundColor = newHex;
+        colorHex[i].innerText = newHex;
+    }
+}
+
+function copyHex() {
+    navigator.clipboard.writeText(hexArr.join("\n"));
 }
 
 function generatePrompt() {
+
+    hexArr = [];
+
     //random categories
     for (let i = 0; i < categories.length; i++) {
         //check if corresponding checkbox is cheked
@@ -48,5 +58,6 @@ function generatePrompt() {
 
 
 
-genButton.addEventListener("click", generatePrompt)
-window.addEventListener("load", generatePrompt)
+genButton.addEventListener("click", generatePrompt);
+copyButton.addEventListener("click", copyHex);
+window.addEventListener("load", generatePrompt);
