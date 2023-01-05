@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+$main-bg: #fcfaf8;
+$accent-green: #abd1c6;
+$dark-accent: #252525;
+$peach: #fff0df;
+$peach-red: #ff736a;
+$yellow: #ffb864;
+$inactive-yellow: #c39c6d;
+$dark-green: #4f9a7f;
+$dark-blue: #5d89ff;
+$light-blue: #dae4ff;
+$border: solid 2px $dark-accent;
+$main-font: "Josefin Sans", sans-serif;
+
+@mixin gen-styles {
+  box-shadow: 5px 5px 0 $dark-accent;
+  padding: 1em;
+}
+
+@mixin btns {
+  @include gen-styles;
+  border: $border;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+
+  &:hover {
+    transform: translateY(5px);
+    box-shadow: none;
+  }
+}
+
+@mixin gen-cb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: $border;
+    width: 25px;
+    height: 25px;
+}
+
+@mixin custom-cm {
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid $dark-accent;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $main-bg;
+  font-family: $main-font;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+
+  main {
+    min-height: 100vh;
+    display: flex;
+
+    #generator-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 700px;
+
+        @media only screen and (min-width: 800px) {
+           margin: auto;
+           padding: 1em;
+        }
+
+        button {
+            @include btns;
+            margin: 1em auto;
+            padding: 1em;
+            width: 80%;
+            background-color: $yellow;
+
+            @media only screen and (min-width: 800px) {
+                //margin: auto;
+                width: 40%;
+                
+            }
+        }
+
+        #generator-results {
+            background-color: $light-blue;
+            display: grid;
+            grid-template-columns: 1fr;
+            
+            @media only screen and (min-width: 800px) {
+                grid-template-columns: 1fr 1fr 1fr;
+                @include gen-styles;
+                border: $border;
+            }
+
+            .input-group {
+            padding: 1em;
+            text-align: center;
+
+            p {
+                padding-top: .5em;
+            }
+
+            //custom checkbox
+            .checkbox-container {
+                position: relative;
+                cursor: pointer;
+                padding-left: 2.3em;
+                padding-bottom: 0.5em;
+
+                //hide default checkbox
+                input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                }
+
+                //create custom checkbox
+                .custom-box {
+                @include gen-cb;
+                background-color: $yellow;
+                
+                }
+
+                //   &:hover input ~ .custom-box {
+                //     background-color: $dark-blue;
+                //   }
+
+                //change color when box is checked
+                //   input:checked ~ .custom-box {
+                //     background-color: $dark-blue;
+                //   }
+
+                //create hidden checkmark
+                .custom-box:after {
+                content: "";
+                position: absolute;
+                display: none;
+                }
+
+                //checkmark indicator
+                input:checked ~ .custom-box:after {
+                display: block;
+                }
+
+                //style checkmark
+                .custom-box:after {
+                @include custom-cm;
+                }
+            }
+            }
+
+            #color-results {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+
+                @media only screen and (min-width: 800px) {
+                    grid-column: span 3;
+                }
+
+                #color-options {
+                    width: 100%;
+                    padding-top: 1em;
+                    display: grid;
+
+                    @media only screen and (min-width: 800px) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
+                }
+
+                .color-group {
+                    padding: .5em;
+                    position: relative;
+
+                    .color-view {
+                        @include btns;
+                        aspect-ratio: 1/0.3;
+                        border: $border;
+                        cursor: pointer;
+                    }
+
+                    .color-hex {
+                        width: 100%;
+                        height: 100%;
+                        padding-top: 1em;
+                    }
+                }
+            }
+
+        }
+
+    }
+  }
+}

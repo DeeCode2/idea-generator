@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fcfaf8;
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+}
+body main {
+  min-height: 100vh;
+  display: flex;
+}
+body main #generator-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container {
+    margin: auto;
+    padding: 1em;
+  }
+}
+body main #generator-container button {
+  box-shadow: 5px 5px 0 #252525;
+  padding: 1em;
+  border: solid 2px #252525;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin: 1em auto;
+  padding: 1em;
+  width: 80%;
+  background-color: #ffb864;
+}
+body main #generator-container button:hover {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container button {
+    width: 40%;
+  }
+}
+body main #generator-container #generator-results {
+  background-color: #dae4ff;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container #generator-results {
+    grid-template-columns: 1fr 1fr 1fr;
+    box-shadow: 5px 5px 0 #252525;
+    padding: 1em;
+    border: solid 2px #252525;
+  }
+}
+body main #generator-container #generator-results .input-group {
+  padding: 1em;
+  text-align: center;
+}
+body main #generator-container #generator-results .input-group p {
+  padding-top: 0.5em;
+}
+body main #generator-container #generator-results .input-group .checkbox-container {
+  position: relative;
+  cursor: pointer;
+  padding-left: 2.3em;
+  padding-bottom: 0.5em;
+}
+body main #generator-container #generator-results .input-group .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+body main #generator-container #generator-results .input-group .checkbox-container .custom-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid 2px #252525;
+  width: 25px;
+  height: 25px;
+  background-color: #ffb864;
+}
+body main #generator-container #generator-results .input-group .checkbox-container .custom-box:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+body main #generator-container #generator-results .input-group .checkbox-container input:checked ~ .custom-box:after {
+  display: block;
+}
+body main #generator-container #generator-results .input-group .checkbox-container .custom-box:after {
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #252525;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+body main #generator-container #generator-results #color-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container #generator-results #color-results {
+    grid-column: span 3;
+  }
+}
+body main #generator-container #generator-results #color-results #color-options {
+  width: 100%;
+  padding-top: 1em;
+  display: grid;
+}
+@media only screen and (min-width: 800px) {
+  body main #generator-container #generator-results #color-results #color-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+body main #generator-container #generator-results #color-results .color-group {
+  padding: 0.5em;
+  position: relative;
+}
+body main #generator-container #generator-results #color-results .color-group .color-view {
+  box-shadow: 5px 5px 0 #252525;
+  padding: 1em;
+  border: solid 2px #252525;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  aspect-ratio: 1/0.3;
+  border: solid 2px #252525;
+  cursor: pointer;
+}
+body main #generator-container #generator-results #color-results .color-group .color-view:hover {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+body main #generator-container #generator-results #color-results .color-group .color-hex {
+  width: 100%;
+  height: 100%;
+  padding-top: 1em;
+}/*# sourceMappingURL=style.css.map */
